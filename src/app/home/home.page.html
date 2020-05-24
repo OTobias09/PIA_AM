@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>
+      Music Search
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="SearchChanged($event)"></ion-searchbar>
+
+  <ion-item>
+    <ion-label>Select Searchtype</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="SearchChanged($event)">
+        <ion-select-option value="">All</ion-select-option>
+        <ion-select-option value="Music">Music</ion-select-option>
+        <ion-select-option value="Video">Video</ion-select-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let result of (results | async)" [routerLink]="['/', 'home', 'item.imbdID']">
+      {{ result.Title }}
+    </ion-item>
+  </ion-list>
+</ion-content>

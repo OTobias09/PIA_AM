@@ -1,0 +1,7 @@
+{
+  "name": "Pia of AM",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
